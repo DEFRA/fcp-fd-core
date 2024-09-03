@@ -1,0 +1,56 @@
+#!/usr/bin/env sh
+set -e
+projectRoot="$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; pwd)"
+
+show_help() {
+  echo "
+    Usage: path/to/fcp-fd-core [OPTION...]
+    Run git pull in services.
+
+    Options:
+      -h, --help       display this help text
+    "
+}
+
+while :; do
+  case $1 in
+    -h|--help)   # Call a "show_help" function to display a synopsis, then exit.
+      show_help
+      exit
+      ;;
+    *)
+      break
+  esac
+
+  shift
+done
+
+# Frontends
+cd "${projectRoot}"
+cd ./fcp-fd-proxy && \
+  git pull
+cd "${projectRoot}"
+cd ./fcp-fd-landing-page && \
+  git pull
+cd "${projectRoot}"
+cd ./fcp-fd-messages && \
+  git pull
+
+# Backends
+cd "${projectRoot}"
+cd ./fcp-fd-auth && \
+  git pull
+cd "${projectRoot}"
+cd ./fcp-fd-ingress && \
+  git pull
+cd "${projectRoot}"
+cd ./fcp-fd-messages-processor && \
+  git pull
+
+# Customer 
+cd "${projectRoot}"
+cd ./fcp-fd-data && \
+  git pull
+cd "${projectRoot}"
+cd ./fcp-fd-customer-receiver-messages && \
+  git pull
