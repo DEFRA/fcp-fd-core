@@ -1,0 +1,41 @@
+#!/usr/bin/env sh
+set -e
+projectRoot="$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; pwd)"
+
+show_help() {
+  echo "
+    Usage: path/to/fcp-fd-core [OPTION...]
+    Open services in VS Code.
+
+    Options:
+      -h, --help       display this help text
+    "
+}
+
+while :; do
+  case $1 in
+    -h|--help)   # Call a "show_help" function to display a synopsis, then exit.
+      show_help
+      exit
+      ;;
+    *)
+      break
+  esac
+
+  shift
+done
+
+cd "${projectRoot}"
+
+# Frontends
+code ./fcp-fd-landing-page;
+code ./fcp-fd-messages;
+
+# Backends
+code ./fcp-fd-auth;
+code ./fcp-fd-ingress;
+code ./fcp-fd-messages-processor;
+
+# Customer 
+code ./fcp-fd-data;
+code ./fcp-fd-customer-receiver-messages;

@@ -1,116 +1,111 @@
-# FCP Template Node
-
-Template to support rapid delivery of microservices for FCP Platform. It contains the configuration needed to deploy a simple Hapi Node server to the Azure Kubernetes Platform.
-
-## Usage
-
-Create a new repository from this template and run `./rename.js` specifying the new name of the project and the description to use e.g.
-```
-./rename.js ffc-demo-web "Web frontend for demo workstream"
-```
-
-The script will update the following:
-
-* `package.json`: update `name`, `description`, `homepage`
-* `docker-compose.yaml`: update the service name, `image` and `container_name`
-* `docker-compose.test.yaml`: update the service name, `image` and `container_name`
-* `docker-compose.override.yaml`: update the service name, `image` and `container_name`
-* Rename `helm/ffc-template-node`
-* `helm/ffc-template-node/Chart.yaml`: update `description` and `name`
-* `helm/ffc-template-node/values.yaml`: update  `name`, `namespace`, `workstream`, `image`, `containerConfigMap.name`
-* `helm/ffc-template-node/templates/_container.yaml`: update the template name
-* `helm/ffc-template-node/templates/cluster-ip-service.yaml`: update the template name and list parameter of include
-* `helm/ffc-template-node/templates/config-map.yaml`: update the template name and list parameter of include
-* `helm/ffc-template-node/templates/deployment.yaml`: update the template name, list parameter of deployment and container includes
-
-### Notes on automated rename
-
-* The Helm chart deployment values in `helm/ffc-template-node/values.yaml` may need updating depending on the resource needs of your microservice
-* The rename is a one-way operation i.e. currently it doesn't allow the name being changed from to be specified
-* There is some validation on the input to try and ensure the rename is successful, however, it is unlikely to stand up to malicious entry
-* Once the rename has been performed the script can be removed from the repo
-* Should the rename go awry the changes can be reverted via `git clean -df && git checkout -- .`
+# Single Front Door Core
+Local development support for orchestrating all Single Front Door microservices.
 
 ## Prerequisites
 
-- Docker
-- Docker Compose
+Ensure you have satisfied the prerequisites of all individual repositories.
 
-Optional:
-- Kubernetes
-- Helm
+## Onboarding Guide
 
-## Running the application
+For new software developers joining the SFD team, there is an [onboarding guide](https://github.com/DEFRA/fcp-fd-core/blob/main/onboarding-guide/README.md) to get an instance of the local service up and running.
 
-The application is designed to run in containerised environments, using Docker Compose in development and Kubernetes in production.
+## Repositories
+### Frontends
+- [fcp-fd-landing-page](https://github.com/defra/fcp-fd-landing-page)
+- [fcp-fd-messages](https://github.com/DEFRA/fcp-fd-messages)
 
-- A Helm chart is provided for production deployments to Kubernetes.
+### Backends
+- [fcp-fd-auth](https://github.com/defra/fcp-fd-auth)
+- [fcp-fd-ingress](https://github.com/defra/fcp-fd-ingress)
+- [fcp-fd-messages-processor](https://github.com/DEFRA/fcp-fd-messages-processor)
 
-### Build container image
+### Customer
+- [fcp-fd-data](https://github.com/defra/fcp-fd-data)
+- [fcp-fd-customer-receiver-messages](https://github.com/DEFRA/fcp-fd-customer-receiver-messages)
 
-Container images are built using Docker Compose, with the same images used to run the service with either Docker Compose or Kubernetes.
+## Scripts
 
-When using the Docker Compose files in development the local `app` folder will
-be mounted on top of the `app` folder within the Docker container, hiding the CSS files that were generated during the Docker build.  For the site to render correctly locally `npm run build` must be run on the host system.
+### Clone
 
+Clone all repositories from GitHub.  Repositories will cloned in the parent directory of this repository.
 
-By default, the start script will build (or rebuild) images so there will
-rarely be a need to build images manually. However, this can be achieved
-through the Docker Compose
-[build](https://docs.docker.com/compose/reference/build/) command:
+[`./clone`](clone)
 
-```
-# Build container images
-docker-compose build
-```
+### Update
+
+Switch to `main` branch in every repository and pull latest changes with `git pull`.
+
+[`./update`](update)
+
+### Build
+
+Build/rebuild Docker container for all microservices.
+
+[`./build`](build)
 
 ### Start
 
-Use Docker Compose to run service locally.
+Run all services.
 
-```
-docker-compose up
-```
+Runs `Seed` script if `fcp-fd-scripts` repository is cloned.
 
-## Test structure
+[`./start`](start)
 
-The tests have been structured into subfolders of `./test` as per the
-[Microservice test approach and repository structure](https://eaflood.atlassian.net/wiki/spaces/FPS/pages/1845396477/Microservice+test+approach+and+repository+structure)
+#### Optional arguments
+- `-f` - include Azure Functions
+- `-s` - include Statement services
+- `-S` - only statement services
 
-### Running tests
+### Stop
 
-A convenience script is provided to run automated tests in a containerised
-environment. This will rebuild images before running tests via docker-compose,
-using a combination of `docker-compose.yaml` and `docker-compose.test.yaml`.
-The command given to `docker-compose run` may be customised by passing
-arguments to the test script.
+Stop all services.
 
-Examples:
+[`./stop`](stop)
 
-```
-# Run all tests
-scripts/test
+#### Optional arguments
 
-# Run tests with file watch
-scripts/test -w
-```
+Any valid `docker-compose down` argument.
 
-## CI pipeline
+### Seed
 
-This service uses the [FFC CI pipeline](https://github.com/DEFRA/ffc-jenkins-pipeline-library)
+Seed customer mapping data from private repository to `fcp-fd-business` if `fcp-fd-scripts` repository is cloned.
 
-## Licence
+[`./seed`](seed)
 
-THIS INFORMATION IS LICENSED UNDER THE CONDITIONS OF THE OPEN GOVERNMENT LICENCE found at:
+### Open
 
-<http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3>
+Open all services in Visual Studio Code.
 
-The following attribution statement MUST be cited in your products and applications when using this information.
+[`./open`](open)
 
-> Contains public sector information licensed under the Open Government license v3
+#### Optional arguments
+- `-f` - include Azure Functions
+- `-s` - include Statement services
+- `-S` - only statement services
 
-### About the licence
+### Latest versions
 
-The Open Government Licence (OGL) was developed by the Controller of Her Majesty's Stationery Office (HMSO) to enable information providers in the public sector to license the use and re-use of their information under a common open licence.
+List latest GitHub release version for each microservice.
 
-It is designed to encourage use and re-use of information freely and flexibly, with only a few conditions.
+[`./latest-versions`](latest-versions)
+
+### Environment versions
+
+List current environment version for each microservice hosted in Kubernetes. Further guidance on how to utilise the `./environment-versions` script is also [available on Confluence](https://eaflood.atlassian.net/wiki/spaces/SFD/pages/5056823438/Environment+versions+Using+kubectl+with+the+fcp-fd-core+repo).
+
+[`./environment-versions`](environment-versions)
+
+#### Options
+- `-c | --cluster` - Kubernetes cluster context name
+- `-n | --namespace` - Kubernetes namespace
+
+#### Resources
+`./resources/cosmos-upload`  
+
+Upload multiple items to a local emulator instance of Cosmos. Insert information as prompted. Currently the items uploaded match only the messages and queries schemas.
+
+### Resource quota
+
+Determine the Kubernetes resource usage for a namespace based on all microservices running at maximum capacity and scaling.
+
+[`./resource-quota`](resource-quota)

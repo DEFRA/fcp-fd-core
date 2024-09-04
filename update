@@ -1,0 +1,56 @@
+#!/usr/bin/env sh
+set -e
+projectRoot="$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; pwd)"
+
+show_help() {
+  echo "
+    Usage: path/to/fcp-fd-core [OPTION...]
+    Update services.
+
+    Options:
+      -h, --help       display this help text
+    "
+}
+
+while :; do
+  case $1 in
+    -h|--help)   # Call a "show_help" function to display a synopsis, then exit.
+      show_help
+      exit
+      ;;
+    *)
+      break
+  esac
+
+  shift
+done
+
+# Arrange in alphabetical order
+cd "${projectRoot}"
+cd ./fcp-fd-auth && \
+  git checkout main && \
+  git pull
+cd "${projectRoot}"
+cd ./fcp-fd-customer-receiver-messages && \
+  git checkout main && \
+  git pull
+cd "${projectRoot}"
+cd ./fcp-fd-data && \
+  git checkout main && \
+  git pull
+cd "${projectRoot}"
+cd ./fcp-fd-ingress && \
+  git checkout main && \
+  git pull
+cd "${projectRoot}"
+cd ./fcp-fd-landing-page && \
+  git checkout main && \
+  git pull
+cd "${projectRoot}"
+cd ./fcp-fd-messages && \
+  git checkout main && \
+  git pull
+cd "${projectRoot}"
+cd ./fcp-fd-messages-processor && \
+  git checkout main && \
+  git pull

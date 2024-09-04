@@ -1,0 +1,57 @@
+#!/bin/bash
+
+set -e
+projectRoot="$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; pwd)"
+
+echo "Enter Database Name (default 'fcp-fd-customer-receiver-messages'):"
+read -r input_database
+database=${input_database:-'fcp-fd-customer-receiver-messages'}
+
+if [ "$database" == "fcp-fd-customer-receiver-messages" ]; then
+
+  echo "Enter CRN (default 1):"
+  read -r input_crn
+  crn=${input_crn:-1}
+
+  echo "Enter SBI (default 1):"
+  read -r input_sbi
+  sbi=${input_sbi:-1}
+
+  echo "Enter Container Name (default 'messages-container'):"
+  read -r input_container
+  container=${input_container:-'messages-container'}
+
+  echo "Enter Quantity (default 1):"
+  read -r input_quantity
+  quantity=${input_quantity:-1}
+
+  cd "${projectRoot}"
+
+  node resources/upload-messages.js "$crn" "$sbi" "$database" "$container" "$quantity"
+
+elif [ "$database" == "fcp-fd-customer-receiver-queries" ]; then
+
+  echo "Enter CRN (default 1):"
+  read -r input_crn
+  crn=${input_crn:-1}
+
+  echo "Enter SBI (default 1):"
+  read -r input_sbi
+  sbi=${input_sbi:-1}
+
+  echo "Enter Container Name (default 'queries-container'):"
+  read -r input_container
+  container=${input_container:-'queries-container'}
+
+  echo "Enter Quantity (default 1):"
+  read -r input_quantity
+  quantity=${input_quantity:-1}
+
+  cd "${projectRoot}"
+
+  node resources/upload-queries.js "$crn" "$sbi" "$database" "$container" "$quantity"
+
+else
+  echo "Invalid database name. Please enter 'fcp-fd-customer-receiver-messages'."
+  exit 1
+fi
