@@ -54,7 +54,6 @@ if [ "${sfd}" = "true" ]; then
   ./fcp-fd-messages-processor/scripts/start -d;
   ./fcp-fd-file-receiver/scripts/start -d;
   ./fcp-fd-file-processor/scripts/start -d;
-  # ./fcp-fd-proxy/scripts/start -d; # Must be after all web applications
 fi
 
 if [ "${receivers}" = "true" ]; then
