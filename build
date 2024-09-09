@@ -40,6 +40,12 @@ cd ./fcp-fd-auth && \
 cd "${projectRoot}"
 cd ./fcp-fd-messages-processor && \
   docker-compose build
+cd "${projectRoot}"
+cd ./fcp-fd-file-receiver && \
+  docker-compose build
+cd "${projectRoot}"
+cd ./fcp-fd-file-processor && \
+  docker-compose build
 
 # Customer 
 cd "${projectRoot}"

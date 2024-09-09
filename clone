@@ -30,4 +30,10 @@ projectRoot=$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; pw
   test -d fcp-fd-customer-receiver-messages\
     && >&2 echo "The 'fcp-fd-customer-receiver-messages' repository already exists. Skipping." \
     || git clone https://github.com/DEFRA/fcp-fd-customer-receiver-messages.git
+  test -d fcp-fd-file-receiver\
+    && >&2 echo "The 'fcp-fd-file-receiver' repository already exists. Skipping." \
+    || git clone https://github.com/DEFRA/fcp-fd-file-receiver.git
+  test -d fcp-fd-file-processor\
+    && >&2 echo "The 'fcp-fd-file-processor' repository already exists. Skipping." \
+    || git clone https://github.com/DEFRA/fcp-fd-file-processor.git
 )

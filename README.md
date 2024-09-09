@@ -18,6 +18,8 @@ For new software developers joining the SFD team, there is an [onboarding guide]
 - [fcp-fd-auth](https://github.com/defra/fcp-fd-auth)
 - [fcp-fd-ingress](https://github.com/defra/fcp-fd-ingress)
 - [fcp-fd-messages-processor](https://github.com/DEFRA/fcp-fd-messages-processor)
+- [fcp-fd-file-receiver](https://github.com/DEFRA/fcp-fd-file-receiver)
+- [fcp-fd-file-processor](https://github.com/DEFRA/fcp-fd-file-processor)
 
 ### Customer
 - [fcp-fd-data](https://github.com/defra/fcp-fd-data)

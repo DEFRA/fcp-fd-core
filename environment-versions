@@ -65,3 +65,9 @@ echo
 echo 'fcp-fd-customer-receiver-messages: ' &&
   kubectl get deployment fcp-fd-customer-receiver-messages -o jsonpath='{.metadata.labels.app\.kubernetes\.io\/version}';
 echo
+echo 'fcp-fd-file-receiver: ' &&
+  kubectl get deployment fcp-fd-file-receiver -o jsonpath='{.metadata.labels.app\.kubernetes\.io\/version}';
+echo
+echo 'fcp-fd-file-processor: ' &&
+  kubectl get deployment fcp-fd-file-processor -o jsonpath='{.metadata.labels.app\.kubernetes\.io\/version}';
+echo
