@@ -27,9 +27,6 @@ done
 
 # Frontends
 cd "${projectRoot}"
-cd ./fcp-fd-proxy && \
-  git pull
-cd "${projectRoot}"
 cd ./fcp-fd-landing-page && \
   git pull
 cd "${projectRoot}"
@@ -45,6 +42,12 @@ cd ./fcp-fd-ingress && \
   git pull
 cd "${projectRoot}"
 cd ./fcp-fd-messages-processor && \
+  git pull
+cd "${projectRoot}"
+cd ./fcp-fd-file-receiver && \
+  git pull
+cd "${projectRoot}"
+cd ./fcp-fd-file-processor && \
   git pull
 
 # Customer 

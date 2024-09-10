@@ -20,3 +20,9 @@ echo 'fcp-fd-messages-processor' &&
 
 echo 'fcp-fd-customer-receiver-messages' &&
   curl --silent "https://api.github.com/repos/defra/fcp-fd-customer-receiver-messages/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+
+echo 'fcp-fd-file-receiver' &&
+  curl --silent "https://api.github.com/repos/defra/fcp-fd-file-receiver/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+
+echo 'fcp-fd-file-processor' &&
+  curl --silent "https://api.github.com/repos/defra/fcp-fd-file-processor/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'

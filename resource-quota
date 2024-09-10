@@ -12,6 +12,8 @@ arr=(
   "fcp-fd-landing-page"
   "fcp-fd-messages"
   "fcp-fd-messages-processor"
+  "fcp-fd-file-receiver"
+  "fcp-fd-file-processor"
   )
 
 for i in "${arr[@]}"
