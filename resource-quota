@@ -14,6 +14,7 @@ arr=(
   "fcp-fd-messages-processor"
   "fcp-fd-file-receiver"
   "fcp-fd-file-processor"
+  "fcp-fd-probe"
   )
 
 for i in "${arr[@]}"

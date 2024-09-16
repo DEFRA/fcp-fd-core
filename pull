@@ -49,6 +49,9 @@ cd ./fcp-fd-file-receiver && \
 cd "${projectRoot}"
 cd ./fcp-fd-file-processor && \
   git pull
+cd "${projectRoot}"
+cd ./fcp-fd-probe && \
+  git pull
 
 # Customer 
 cd "${projectRoot}"

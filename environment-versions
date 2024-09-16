@@ -71,3 +71,6 @@ echo
 echo 'fcp-fd-file-processor: ' &&
   kubectl get deployment fcp-fd-file-processor -o jsonpath='{.metadata.labels.app\.kubernetes\.io\/version}';
 echo
+echo 'fcp-fd-probe: ' &&
+  kubectl get deployment fcp-fd-probe -o jsonpath='{.metadata.labels.app\.kubernetes\.io\/version}';
+echo

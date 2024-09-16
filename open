@@ -37,6 +37,7 @@ code ./fcp-fd-ingress;
 code ./fcp-fd-messages-processor;
 code ./fcp-fd-file-receiver;
 code ./fcp-fd-file-processor;
+code ./fcp-fd-probe;
 
 # Customer 
 code ./fcp-fd-data;

@@ -26,3 +26,6 @@ echo 'fcp-fd-file-receiver' &&
 
 echo 'fcp-fd-file-processor' &&
   curl --silent "https://api.github.com/repos/defra/fcp-fd-file-processor/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+
+echo 'fcp-fd-probe' &&
+  curl --silent "https://api.github.com/repos/defra/fcp-fd-probe/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'

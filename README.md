@@ -20,6 +20,7 @@ For new software developers joining the SFD team, there is an [onboarding guide]
 - [fcp-fd-messages-processor](https://github.com/DEFRA/fcp-fd-messages-processor)
 - [fcp-fd-file-receiver](https://github.com/DEFRA/fcp-fd-file-receiver)
 - [fcp-fd-file-processor](https://github.com/DEFRA/fcp-fd-file-processor)
+- [fcp-fd-probe](https://github.com/DEFRA/fcp-fd-probe)
 
 ### Customer
 - [fcp-fd-data](https://github.com/defra/fcp-fd-data)
