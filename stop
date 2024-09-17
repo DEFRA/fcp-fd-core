@@ -52,3 +52,6 @@ cd ./fcp-fd-messages && \
 cd "${projectRoot}"
 cd ./fcp-fd-messages-processor && \
   docker-compose down $@
+cd "${projectRoot}"
+cd ./fcp-fd-probe && \
+  docker-compose down $@

@@ -36,4 +36,7 @@ projectRoot=$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; pw
   test -d fcp-fd-file-processor\
     && >&2 echo "The 'fcp-fd-file-processor' repository already exists. Skipping." \
     || git clone https://github.com/DEFRA/fcp-fd-file-processor.git
+  test -d fcp-fd-probe\
+    && >&2 echo "The 'fcp-fd-probe' repository already exists. Skipping." \
+    || git clone https://github.com/DEFRA/fcp-fd-probe.git
 )

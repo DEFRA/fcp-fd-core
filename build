@@ -46,6 +46,9 @@ cd ./fcp-fd-file-receiver && \
 cd "${projectRoot}"
 cd ./fcp-fd-file-processor && \
   docker-compose build
+cd "${projectRoot}"
+cd ./fcp-fd-probe && \
+  docker-compose build
 
 # Customer 
 cd "${projectRoot}"
