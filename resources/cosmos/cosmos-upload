@@ -27,7 +27,7 @@ if [ "$database" == "fcp-fd-customer-receiver-messages" ]; then
 
   cd "${projectRoot}"
 
-  node resources/upload-messages.js "$crn" "$sbi" "$database" "$container" "$quantity"
+  node resources/cosmos/upload-messages.js "$crn" "$sbi" "$database" "$container" "$quantity"
 
 elif [ "$database" == "fcp-fd-customer-receiver-queries" ]; then
 
@@ -49,7 +49,7 @@ elif [ "$database" == "fcp-fd-customer-receiver-queries" ]; then
 
   cd "${projectRoot}"
 
-  node resources/upload-queries.js "$crn" "$sbi" "$database" "$container" "$quantity"
+  node resources/cosmos/upload-queries.js "$crn" "$sbi" "$database" "$container" "$quantity"
 
 else
   echo "Invalid database name. Please enter 'fcp-fd-customer-receiver-messages'."
