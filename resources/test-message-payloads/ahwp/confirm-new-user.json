@@ -1,0 +1,23 @@
+// TEMPLATE NAME = uk.gov.fcp.ahwp.user.new -------> DELETE THIS LINE BEFORE SENDING
+// UPDATE commsAddresses TO YOUR OWN EMAIL ADDRESS -------> DELETE THIS LINE BEFORE SENDING
+
+{
+  "id": "123e4567-e89b-12d3-a456-426655440000",
+  "source": "ffc-ahwr-claim",
+  "specversion": "1.0",
+  "type": "uk.gov.fcp.sfd.notification.request",
+  "datacontenttype": "application/json",
+  "time": "2023-10-17T14:48:00Z",
+  "data": {
+      "notifyTemplateId": "2f9b1e0e-b678-481c-839e-892ebf42fddf",
+      "commsType": "email",
+      "commsAddresses": [
+          "jane.doe@defra.gov.uk",
+          "john.doe@defra.gov.uk"
+      ],
+      "personalisation": {
+          "reference": "test-reference"
+      },
+      "emailReplyToId": "8e222534-7f05-4972-86e3-17c5d9f894e2"
+  }
+}
