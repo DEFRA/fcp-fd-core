@@ -97,9 +97,8 @@ List current environment version for each microservice hosted in Kubernetes. Fur
 - `-n | --namespace` - Kubernetes namespace
 
 #### Resources
-`./resources/cosmos-upload`  
-
-Upload multiple items to a local emulator instance of Cosmos. Insert information as prompted. Currently the items uploaded match only the messages and queries schemas.
+`./resources`: contains useful resources for local development.
+`./resources/test-message-payloads`: example message payloads that can be used for Notify email templates.
 
 ### Resource quota
 
