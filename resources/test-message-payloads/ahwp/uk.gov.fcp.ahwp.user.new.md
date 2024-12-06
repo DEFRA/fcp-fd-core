@@ -1,6 +1,6 @@
-// TEMPLATE NAME = uk.gov.fcp.ahwp.user.new -------> DELETE THIS LINE BEFORE SENDING
-// UPDATE commsAddresses TO YOUR OWN EMAIL ADDRESS -------> DELETE THIS LINE BEFORE SENDING
+Update `commsAddresses` to your own email address.
 
+```
 {
   "id": "123e4567-e89b-12d3-a456-426655440000",
   "source": "ffc-ahwr-claim",
@@ -21,3 +21,4 @@
       "emailReplyToId": "8e222534-7f05-4972-86e3-17c5d9f894e2"
   }
 }
+```
