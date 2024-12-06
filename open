@@ -27,11 +27,11 @@ done
 
 cd "${projectRoot}"
 
-# Frontends
+# Frontends (A-Z)
 code ./fcp-fd-landing-page;
 code ./fcp-fd-messages;
 
-# Backends
+# Backends (A-Z)
 code ./fcp-fd-auth;
 code ./fcp-fd-comms;
 code ./fcp-fd-file-processor;
@@ -41,6 +41,6 @@ code ./fcp-fd-messages-processor;
 code ./fcp-fd-probe;
 code ./fcp-fd-probe-alerts;
 
-# Customer 
+# Customer (A-Z)
 code ./fcp-fd-data;
 code ./fcp-fd-customer-receiver-messages;
