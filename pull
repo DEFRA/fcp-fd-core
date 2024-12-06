@@ -25,22 +25,20 @@ while :; do
   shift
 done
 
-# Frontends (A-Z)
-cd "${projectRoot}"
-cd ./fcp-fd-landing-page && \
-  git pull
-
-cd "${projectRoot}"
-cd ./fcp-fd-messages && \
-  git pull
-
-# Backends (A-Z)
 cd "${projectRoot}"
 cd ./fcp-fd-auth && \
   git pull
 
 cd "${projectRoot}"
 cd ./fcp-fd-comms && \
+  git pull
+
+cd "${projectRoot}"
+cd ./fcp-fd-customer-receiver-messages && \
+  git pull
+
+cd "${projectRoot}"
+cd ./fcp-fd-data && \
   git pull
 
 cd "${projectRoot}"
@@ -56,6 +54,14 @@ cd ./fcp-fd-ingress && \
   git pull
 
 cd "${projectRoot}"
+cd ./fcp-fd-landing-page && \
+  git pull
+
+cd "${projectRoot}"
+cd ./fcp-fd-messages && \
+  git pull
+
+cd "${projectRoot}"
 cd ./fcp-fd-messages-processor && \
   git pull
 
@@ -65,13 +71,4 @@ cd ./fcp-fd-probe && \
 
 cd "${projectRoot}"
 cd ./fcp-fd-probe-alerts && \
-  git pull
-
-# Customer (A-Z)
-cd "${projectRoot}"
-cd ./fcp-fd-data && \
-  git pull
-
-cd "${projectRoot}"
-cd ./fcp-fd-customer-receiver-messages && \
   git pull
