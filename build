@@ -25,35 +25,46 @@ while :; do
   shift
 done
 
-# Frontends
-cd "${projectRoot}"
-cd ./fcp-fd-landing-page && \
-  docker-compose build
-cd "${projectRoot}"
-cd ./fcp-fd-messages && \
-  docker-compose build
-
-# Backends
 cd "${projectRoot}"
 cd ./fcp-fd-auth && \
   docker-compose build
+
 cd "${projectRoot}"
-cd ./fcp-fd-messages-processor && \
+cd ./fcp-fd-comms && \
   docker-compose build
+  
 cd "${projectRoot}"
-cd ./fcp-fd-file-receiver && \
+cd ./fcp-fd-customer-receiver-messages && \
   docker-compose build
+
+cd "${projectRoot}"
+cd ./fcp-fd-data && \
+  docker-compose build
+
 cd "${projectRoot}"
 cd ./fcp-fd-file-processor && \
   docker-compose build
+
+cd "${projectRoot}"
+cd ./fcp-fd-file-receiver && \
+  docker-compose build
+
+cd "${projectRoot}"
+cd ./fcp-fd-landing-page && \
+  docker-compose build
+
+cd "${projectRoot}"
+cd ./fcp-fd-messages && \
+  docker-compose build
+  
+cd "${projectRoot}"
+cd ./fcp-fd-messages-processor && \
+  docker-compose build
+
 cd "${projectRoot}"
 cd ./fcp-fd-probe && \
   docker-compose build
 
-# Customer 
 cd "${projectRoot}"
-cd ./fcp-fd-data && \
-  docker-compose build
-cd "${projectRoot}"
-cd ./fcp-fd-customer-receiver-messages && \
+cd ./fcp-fd-probe-alerts && \
   docker-compose build

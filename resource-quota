@@ -7,14 +7,16 @@ totalPods=0
 # Arrange in alphabetical order
 arr=(
   "fcp-fd-auth"
+  "fcp-fd-comms"
   "fcp-fd-customer-receiver-messages"
   "fcp-fd-data"
+  "fcp-fd-file-processor"
+  "fcp-fd-file-receiver"
   "fcp-fd-landing-page"
   "fcp-fd-messages"
   "fcp-fd-messages-processor"
-  "fcp-fd-file-receiver"
-  "fcp-fd-file-processor"
   "fcp-fd-probe"
+  "fcp-fd-probe-alerts"
   )
 
 for i in "${arr[@]}"

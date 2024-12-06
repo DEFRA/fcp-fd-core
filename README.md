@@ -16,11 +16,13 @@ For new software developers joining the SFD team, there is an [onboarding guide]
 
 ### Backends
 - [fcp-fd-auth](https://github.com/defra/fcp-fd-auth)
+- [fcp-fd-comms](https://github.com/defra/fcp-fd-comms)
+- [fcp-fd-file-processor](https://github.com/DEFRA/fcp-fd-file-processor)
+- [fcp-fd-file-receiver](https://github.com/DEFRA/fcp-fd-file-receiver)
 - [fcp-fd-ingress](https://github.com/defra/fcp-fd-ingress)
 - [fcp-fd-messages-processor](https://github.com/DEFRA/fcp-fd-messages-processor)
-- [fcp-fd-file-receiver](https://github.com/DEFRA/fcp-fd-file-receiver)
-- [fcp-fd-file-processor](https://github.com/DEFRA/fcp-fd-file-processor)
 - [fcp-fd-probe](https://github.com/DEFRA/fcp-fd-probe)
+- [fcp-fd-probe-alerts](https://github.com/DEFRA/fcp-fd-probe-alerts)
 
 ### Customer
 - [fcp-fd-data](https://github.com/defra/fcp-fd-data)
@@ -50,8 +52,6 @@ Build/rebuild Docker container for all microservices.
 
 Run all services.
 
-Runs `Seed` script if `fcp-fd-scripts` repository is cloned.
-
 [`./start`](start)
 
 #### Optional arguments
@@ -68,12 +68,6 @@ Stop all services.
 #### Optional arguments
 
 Any valid `docker-compose down` argument.
-
-### Seed
-
-Seed customer mapping data from private repository to `fcp-fd-business` if `fcp-fd-scripts` repository is cloned.
-
-[`./seed`](seed)
 
 ### Open
 
@@ -103,9 +97,8 @@ List current environment version for each microservice hosted in Kubernetes. Fur
 - `-n | --namespace` - Kubernetes namespace
 
 #### Resources
-`./resources/cosmos-upload`  
-
-Upload multiple items to a local emulator instance of Cosmos. Insert information as prompted. Currently the items uploaded match only the messages and queries schemas.
+`./resources`: contains useful resources for local development.
+`./resources/test-message-payloads`: example message payloads that can be used for Notify email templates.
 
 ### Resource quota
 

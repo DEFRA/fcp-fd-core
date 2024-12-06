@@ -28,30 +28,47 @@ done
 cd "${projectRoot}"
 cd ./fcp-fd-auth && \
   docker-compose down $@
+
+cd "${projectRoot}"
+cd ./fcp-fd-comms && \
+  docker-compose down $@
+
 cd "${projectRoot}"
 cd ./fcp-fd-customer-receiver-messages && \
   docker-compose down $@
+
 cd "${projectRoot}"
 cd ./fcp-fd-data && \
   docker-compose down $@
-cd "${projectRoot}"
-cd ./fcp-fd-file-receiver && \
-  docker-compose down $@
+
 cd "${projectRoot}"
 cd ./fcp-fd-file-processor && \
   docker-compose down $@
+
+cd "${projectRoot}"
+cd ./fcp-fd-file-receiver && \
+  docker-compose down $@
+
 cd "${projectRoot}"
 cd ./fcp-fd-ingress && \
   docker-compose down $@
+
 cd "${projectRoot}"
 cd ./fcp-fd-landing-page && \
   docker-compose down $@
+
 cd "${projectRoot}"
 cd ./fcp-fd-messages && \
   docker-compose down $@
+
 cd "${projectRoot}"
 cd ./fcp-fd-messages-processor && \
   docker-compose down $@
+
 cd "${projectRoot}"
 cd ./fcp-fd-probe && \
+  docker-compose down $@
+
+cd "${projectRoot}"
+cd ./fcp-fd-probe-alerts && \
   docker-compose down $@

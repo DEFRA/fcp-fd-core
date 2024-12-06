@@ -29,39 +29,58 @@ cd "${projectRoot}"
 cd ./fcp-fd-auth && \
   git checkout main && \
   git pull
+
+cd "${projectRoot}"
+cd ./fcp-fd-comms && \
+  git checkout main && \
+  git pull
+
 cd "${projectRoot}"
 cd ./fcp-fd-customer-receiver-messages && \
   git checkout main && \
   git pull
+
 cd "${projectRoot}"
 cd ./fcp-fd-data && \
   git checkout main && \
   git pull
-cd "${projectRoot}"
-cd ./fcp-fd-ingress && \
-  git checkout main && \
-  git pull
-cd "${projectRoot}"
-cd ./fcp-fd-landing-page && \
-  git checkout main && \
-  git pull
-cd "${projectRoot}"
-cd ./fcp-fd-messages && \
-  git checkout main && \
-  git pull
-cd "${projectRoot}"
-cd ./fcp-fd-messages-processor && \
-  git checkout main && \
-  git pull
-cd "${projectRoot}"
-cd ./fcp-fd-file-receiver && \
-  git checkout main && \
-  git pull
+
 cd "${projectRoot}"
 cd ./fcp-fd-file-processor && \
   git checkout main && \
   git pull
+
+cd "${projectRoot}"
+cd ./fcp-fd-file-receiver && \
+  git checkout main && \
+  git pull
+
+cd "${projectRoot}"
+cd ./fcp-fd-ingress && \
+  git checkout main && \
+  git pull
+
+cd "${projectRoot}"
+cd ./fcp-fd-landing-page && \
+  git checkout main && \
+  git pull
+
+cd "${projectRoot}"
+cd ./fcp-fd-messages && \
+  git checkout main && \
+  git pull
+
+cd "${projectRoot}"
+cd ./fcp-fd-messages-processor && \
+  git checkout main && \
+  git pull
+
 cd "${projectRoot}"
 cd ./fcp-fd-probe && \
+  git checkout main && \
+  git pull
+
+cd "${projectRoot}"
+cd ./fcp-fd-probe-alerts && \
   git checkout main && \
   git pull
