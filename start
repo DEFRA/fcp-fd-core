@@ -24,14 +24,6 @@ show_help() {
 
 while :; do
   case $1 in    
-    -d|--data-only)
-      sfd="false"
-      data="true"
-      receivers="true"
-      ;;
-    -r|--receivers-disabled)
-      receivers="false"
-      ;;  
     -h|--help)   # Call a "show_help" function to display a synopsis, then exit.
       show_help
       exit
@@ -39,30 +31,19 @@ while :; do
     *)
       break
   esac
-
   shift
 done
 
 cd "${projectRoot}"
 
-if [ "${sfd}" = "true" ]; then
-  ./fcp-fd-data/scripts/start -d;
-  ./fcp-fd-auth/scripts/start -d;
-  ./fcp-fd-comms/scripts/start -d;
-  ./fcp-fd-file-processor/scripts/start -d;
-  ./fcp-fd-file-receiver/scripts/start -d;
-  ./fcp-fd-landing-page/scripts/start -d;
-  ./fcp-fd-messages/scripts/start -d;
-  ./fcp-fd-messages-processor/scripts/start -d;
-  ./fcp-fd-probe/scripts/start -d;
-  ./fcp-fd-probe-alerts/scripts/start -d;
-fi
-
-if [ "${receivers}" = "true" ]; then
-  ./fcp-fd-customer-receiver-messages/scripts/start -d;
-fi
-
-if [ "${data}" = "true" ]; then
-  ./fcp-fd-data/scripts/start -d;
-  ./fcp-fd-customer-receiver-messages/scripts/start -d;
-fi
+./fcp-fd-auth/scripts/start -d;
+./fcp-fd-comms/scripts/start -d;
+./fcp-fd-customer-receiver-messages/scripts/start -d;
+./fcp-fd-data/scripts/start -d;
+./fcp-fd-file-processor/scripts/start -d;
+./fcp-fd-file-receiver/scripts/start -d;
+./fcp-fd-landing-page/scripts/start -d;
+./fcp-fd-messages/scripts/start -d;
+./fcp-fd-messages-processor/scripts/start -d;
+./fcp-fd-probe/scripts/start -d;
+./fcp-fd-probe-alerts/scripts/start -d;
