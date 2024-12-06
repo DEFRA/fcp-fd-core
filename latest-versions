@@ -1,25 +1,28 @@
 #!/usr/bin/env sh
 
-echo 'fcp-fd-landing-page' &&
-  curl --silent "https://api.github.com/repos/defra/fcp-fd-landing-page/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
-
 echo 'fcp-fd-auth' &&
   curl --silent "https://api.github.com/repos/defra/fcp-fd-auth/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
 
-echo 'fcp-fd-ingress' &&
-  curl --silent "https://api.github.com/repos/defra/fcp-fd-ingress/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+echo 'fcp-fd-comms' &&
+  curl --silent "https://api.github.com/repos/defra/fcp-fd-comms/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+
+echo 'fcp-fd-customer-receiver-messages' &&
+  curl --silent "https://api.github.com/repos/defra/fcp-fd-customer-receiver-messages/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
 
 echo 'fcp-fd-data' &&
   curl --silent "https://api.github.com/repos/defra/fcp-fd-data/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+
+echo 'fcp-fd-landing-page' &&
+  curl --silent "https://api.github.com/repos/defra/fcp-fd-landing-page/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+
+echo 'fcp-fd-ingress' &&
+  curl --silent "https://api.github.com/repos/defra/fcp-fd-ingress/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
   
 echo 'fcp-fd-messages' &&
   curl --silent "https://api.github.com/repos/defra/fcp-fd-messages/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
 
 echo 'fcp-fd-messages-processor' &&
   curl --silent "https://api.github.com/repos/defra/fcp-fd-messages-processor/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
-
-echo 'fcp-fd-customer-receiver-messages' &&
-  curl --silent "https://api.github.com/repos/defra/fcp-fd-customer-receiver-messages/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
 
 echo 'fcp-fd-file-receiver' &&
   curl --silent "https://api.github.com/repos/defra/fcp-fd-file-receiver/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'

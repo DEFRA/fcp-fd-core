@@ -50,10 +50,6 @@ cd ./fcp-fd-file-processor && \
 cd "${projectRoot}"
 cd ./fcp-fd-file-receiver && \
   docker-compose build
-
-cd "${projectRoot}"
-cd ./fcp-fd-ingress && \
-  docker-compose build
   
 cd "${projectRoot}"
 cd ./fcp-fd-messages-processor && \
