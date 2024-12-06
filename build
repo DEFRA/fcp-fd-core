@@ -25,22 +25,20 @@ while :; do
   shift
 done
 
-# Frontends (A-Z)
-cd "${projectRoot}"
-cd ./fcp-fd-landing-page && \
-  docker-compose build
-
-cd "${projectRoot}"
-cd ./fcp-fd-messages && \
-  docker-compose build
-
-# Backends (A-Z)
 cd "${projectRoot}"
 cd ./fcp-fd-auth && \
   docker-compose build
 
 cd "${projectRoot}"
 cd ./fcp-fd-comms && \
+  docker-compose build
+  
+cd "${projectRoot}"
+cd ./fcp-fd-customer-receiver-messages && \
+  docker-compose build
+
+cd "${projectRoot}"
+cd ./fcp-fd-data && \
   docker-compose build
 
 cd "${projectRoot}"
@@ -49,6 +47,14 @@ cd ./fcp-fd-file-processor && \
 
 cd "${projectRoot}"
 cd ./fcp-fd-file-receiver && \
+  docker-compose build
+
+cd "${projectRoot}"
+cd ./fcp-fd-landing-page && \
+  docker-compose build
+
+cd "${projectRoot}"
+cd ./fcp-fd-messages && \
   docker-compose build
   
 cd "${projectRoot}"
@@ -61,13 +67,4 @@ cd ./fcp-fd-probe && \
 
 cd "${projectRoot}"
 cd ./fcp-fd-probe-alerts && \
-  docker-compose build
-
-# Customer (A-Z)
-cd "${projectRoot}"
-cd ./fcp-fd-data && \
-  docker-compose build
-  
-cd "${projectRoot}"
-cd ./fcp-fd-customer-receiver-messages && \
   docker-compose build
