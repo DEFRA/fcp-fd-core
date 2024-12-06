@@ -1,5 +1,5 @@
 # Local Development Set Up
-The SFD has a pretty large number of repositories that we're currently developing and prototyping. The following instructions should get you set up so that you can run the Single Front Door service locally. There is some information, such as environment variables, that can't be provided/shared publicly in this guide, but the team will provide all of the environment variables needed to get the SFD up and running locally. 
+The SFD has a pretty large number of repositories. The following instructions should get you set up so that you can run the Single Front Door service locally. There is some information, such as environment variables, that can't be provided/shared publicly in this guide, but the team will provide all of the environment variables needed to get the SFD up and running locally. 
 
 1. Clone the [fcp-fd-core](https://github.com/defra/fcp-fd-core) repository from GitHub. This makes local development a lot easier because you'll be able to build, start, and stop multiple Docker containers for each of our micro-services with a single command. The core also enables you to checkout to main branches and pull latest updates.
 
