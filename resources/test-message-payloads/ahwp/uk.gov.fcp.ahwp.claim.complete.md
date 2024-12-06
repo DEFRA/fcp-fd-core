@@ -23,7 +23,7 @@ Update `commsAddresses` to your own email address.
         },
         "reference": "ffc-ahwr-example-reference",
         "oneClickUnsubscribeUrl": "https://unsubscribe.example.com",
-        "emailReplyToId": "8e222534-7f05-4972-86e3-17c5d9f894e2",
+        "emailReplyToId": "8e222534-7f05-4972-86e3-17c5d9f894e2"
     }
 }
 ```
