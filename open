@@ -33,11 +33,13 @@ code ./fcp-fd-messages;
 
 # Backends
 code ./fcp-fd-auth;
+code ./fcp-fd-comms;
+code ./fcp-fd-file-processor;
+code ./fcp-fd-file-receiver;
 code ./fcp-fd-ingress;
 code ./fcp-fd-messages-processor;
-code ./fcp-fd-file-receiver;
-code ./fcp-fd-file-processor;
 code ./fcp-fd-probe;
+code ./fcp-fd-probe-alerts;
 
 # Customer 
 code ./fcp-fd-data;
