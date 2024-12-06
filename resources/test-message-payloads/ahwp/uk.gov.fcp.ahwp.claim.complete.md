@@ -16,7 +16,7 @@ Update `commsAddresses` to your own email address.
           "john.doe@defra.gov.uk"
       ],
       "personalisation": {
-          "reference": "test-reference"
+          "applicationReference": "test-reference"
       },
       "emailReplyToId": "8e222534-7f05-4972-86e3-17c5d9f894e2"
   }
