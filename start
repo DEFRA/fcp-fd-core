@@ -47,14 +47,15 @@ cd "${projectRoot}"
 
 if [ "${sfd}" = "true" ]; then
   ./fcp-fd-data/scripts/start -d;
-  echo "Waiting for cosmosDB to start"
   ./fcp-fd-auth/scripts/start -d;
+  ./fcp-fd-comms/scripts/start -d;
+  ./fcp-fd-file-processor/scripts/start -d;
+  ./fcp-fd-file-receiver/scripts/start -d;
   ./fcp-fd-landing-page/scripts/start -d;
   ./fcp-fd-messages/scripts/start -d;
   ./fcp-fd-messages-processor/scripts/start -d;
-  ./fcp-fd-file-receiver/scripts/start -d;
-  ./fcp-fd-file-processor/scripts/start -d;
   ./fcp-fd-probe/scripts/start -d;
+  ./fcp-fd-probe-alerts/scripts/start -d;
 fi
 
 if [ "${receivers}" = "true" ]; then
@@ -63,6 +64,5 @@ fi
 
 if [ "${data}" = "true" ]; then
   ./fcp-fd-data/scripts/start -d;
-  echo "Waiting for cosmosDB to start"
   ./fcp-fd-customer-receiver-messages/scripts/start -d;
 fi
