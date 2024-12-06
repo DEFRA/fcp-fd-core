@@ -3,7 +3,7 @@ Below is a list of links that are useful to onboarding new software developers t
 
 - [fcp-fd-core](https://github.com/defra/fcp-fd-core): Local development support for orchestrating all Single Front Door microservices.
 - [ffc-azure-service-bus-scripts](https://github.com/defra/ffc-azure-service-bus-scripts): For provisioning Azure Service Bus infrastructure to be used for local development.
-- [yq](https://github.com/mikefarah/yq): A lightweight and portable command-line YAML, JSON, and XML processor. Needed to run commands from the [ffc-azure-service-bus-scripts](https://github.com/defra/ffc-azure-service-bus-scripts) repository.
+  - [yq](https://github.com/mikefarah/yq): A lightweight and portable command-line YAML, JSON, and XML processor. Needed to run commands from the `ffc-azure-service-bus-scripts` repository.
 - [Defra ID Test Data](https://eaflood.atlassian.net/wiki/spaces/VVAHWR/pages/4329538112/DEFRA+ID+Test+Data): Mock CRNs and passwords that can be used for signing into the SFD via Defra Identity when `DEFRA_ID_ENABLED` is set to `true`.
 - [Single Front Door Production Board (Jira)](https://eaflood.atlassian.net/jira/software/projects/SFDP/boards/1959): Where all SFD production tickets are tracked.
 - [Single Front Door Release Board (Jira)](https://eaflood.atlassian.net/jira/software/projects/SFDR/boards/2552): Where all SFD release tickets are tracked.
