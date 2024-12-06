@@ -11,10 +11,12 @@ The SFD has a pretty large number of repositories. The following instructions sh
 	- As an alternative to the above suggestion, it is recommended to use the official Service Bus emulator. Information on this emulator can be found in the [FCP Development Guide](https://defra.github.io/ffc-development-guide/development-patterns/events-and-messages/#local-development).
 
 5. Once your `.env` file set up is complete and your Service Bus infrastructure is provisioned, you'll need to build and then start all the Docker containers:
+
 ```
 ./build
 ./start
 ```
+
 If at any stage you come into any errors and have issues with troubleshooting, don't hesitate to reach out to the team and we'll get it sorted.
 ***
  There are two environment variables which you won't receive values for: `DEV_AUTH_PUBLIC_KEY` and `DEV_AUTH_PRIVATE_KEY`. These are only needed when `DEFRA_ID_ENABLED` is set to `false` and the `fcp-fd-auth` service will automatically generate values for both of these variables on start up.
