@@ -11,7 +11,7 @@ Update `commsAddresses` to your own email address.
     "data": {
         "crn": "1050000000",
         "sbi": "105000000",
-        "sourceSystem": "AHWP",
+        "sourceSystem": "ahwp",
         "notifyTemplateId": "0de30a2d-62bc-47b2-946e-6c6588887c4f",
         "commsType": "email",
         "commsAddresses": [
