@@ -74,17 +74,17 @@ Database migrations are run by the local-setup container automatically when the 
 
 To do this, add a bind mount to `local-setup/fcp-fd-local-setup.yml` for the changelog directory of the new service.
 
+```yaml
+    volumes:
+      - ../repos/{service-name}/changelog:/liquibase/services/{service_name}/changelog
+```
+
 > [!IMPORTANT]
 > The service_name folder on the container side must use snake_case.
 > For example, if the service name is `fcp-fd-new-service`, the bind mount should be `/liquibase/services/fcp_fd_new_service/changelog`.
 > ```yaml
 > volumes:
 >   - ../repos/fcp-fd-new-service/changelog:/liquibase/services/fcp_fd_new_service/changelog
-
-```yaml
-    volumes:
-      - ../repos/{service-name}/changelog:/liquibase/services/{service_name}/changelog
-```
 
 ## Script Documentation
 This project contains a number of scripts to streamline local microservice development.
