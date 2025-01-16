@@ -1,0 +1,28 @@
+include:
+  - fcp-fd-service-bus.yaml
+services:
+  fcp-fd-local-setup:
+    build:
+      context: ../local-setup
+    image: fcp-fd-local-setup
+    container_name: fcp-fd-local-setup
+    depends_on:
+      fcp-fd-service-bus:
+        condition: service_started
+      fcp-fd-postgres:
+        condition: service_healthy
+      fcp-fd-azurite: 
+        condition: service_started
+    networks:
+      - fcp-fd
+    env_file:
+      - ../.env
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST:-fcp-fd-postgres}
+      SCHEMA_NAME: ${POSTGRES_SCHEMA_NAME:-public}
+      POSTGRES_PORT: 5432
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ppp}
+      POSTGRES_USERNAME: ${POSTGRES_USERNAME:-postgres}
+    volumes:
+      - ../repos/fcp-fd-comms/changelog:/liquibase/services/fcp_fd_comms/changelog
+      - ../repos/fcp-fd-data/changelog:/liquibase/services/fcp_fd_data/changelog

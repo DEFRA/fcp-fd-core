@@ -1,0 +1,22 @@
+services:
+  fcp-fd-data:
+    build:
+      context: ../../fcp-fd-data
+      target: development
+    image: fcp-fd-data
+    container_name: fcp-fd-data
+    depends_on:
+      fcp-fd-local-setup:
+        condition: service_completed_successfully
+    networks:
+      - fcp-fd
+    ports:
+      - "3033:3033"
+      - "9033:9229"
+    env_file:
+      - ../.env
+    environment:
+      DATA_TOPIC_ADDRESS: fcp-fd-data${MESSAGE_DEV_SUFFIX}
+      DATA_SUBSCRIPTION_ADDRESS: fcp-fd-data${MESSAGE_DEV_SUFFIX}
+    volumes:
+      - ../../fcp-fd-data/app:/home/node/app

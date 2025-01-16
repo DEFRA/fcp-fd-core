@@ -1,0 +1,23 @@
+services:
+  fcp-fd-comms:
+    build:
+      context: ../../fcp-fd-comms
+      target: development
+    image: fcp-fd-comms
+    container_name: fcp-fd-comms
+    depends_on:
+      fcp-fd-local-setup:
+        condition: service_completed_successfully
+    networks:
+      - fcp-fd
+    ports:
+      - "3039:3039"
+      - "9039:9229"
+    env_file:
+      - ../.env
+    environment:
+      COMMS_TOPIC_ADDRESS: fcp-fd-comms${MESSAGE_DEV_SUFFIX}
+      COMMS_SUBSCRIPTION_ADDRESS: fcp-fd-comms${MESSAGE_DEV_SUFFIX}
+      DATA_TOPIC_ADDRESS: fcp-fd-data${MESSAGE_DEV_SUFFIX}
+    volumes:
+      - ../../fcp-fd-comms/app:/home/node/app
