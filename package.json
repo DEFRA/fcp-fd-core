@@ -1,6 +1,6 @@
 {
   "name": "fcp-fd-core",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Repo to support local development of Single Front Door Microservices",
   "type": "module",
   "main": "scripts/index.js",

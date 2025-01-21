@@ -75,8 +75,8 @@ Database migrations are run by the local-setup container automatically when the 
 To do this, add a bind mount to `local-setup/fcp-fd-local-setup.yml` for the changelog directory of the new service.
 
 ```yaml
-    volumes:
-      - ../repos/{service-name}/changelog:/liquibase/services/{service_name}/changelog
+volumes:
+    - ../repos/{service-name}/changelog:/liquibase/services/{service_name}/changelog
 ```
 
 > [!IMPORTANT]
