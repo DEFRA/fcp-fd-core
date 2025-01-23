@@ -62,3 +62,7 @@ services:
         ${DMZ_STORAGE_ACCOUNT_NAME:-dmz}:${AZURITE_ACCESS_KEY:-test};${CLN_STORAGE_ACCOUNT_NAME:-cln}:${AZURITE_ACCESS_KEY:-test};${MAL_STORAGE_ACCOUNT_NAME:-mal}:${AZURITE_ACCESS_KEY:-test}
     volumes:
       - azurite_data:/data
+
+volumes:
+  postgres_data:
+  azurite_data:
