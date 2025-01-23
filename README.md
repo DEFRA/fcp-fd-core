@@ -4,7 +4,7 @@ Local development support for orchestrating all Single Front Door microservices.
 ## Prerequisites
 * Docker
 * Docker Compose
-* Node.js 22.13 LTS - We recommend using [NVM](https://github.com/nvm-sh/nvm)
+* Node.js 22.13 LTS - We recommend using [NVM](https://github.com/nvm-sh/nvm) for Unix-based systems or [NVM-Windows](https://github.com/coreybutler/nvm-windows).
 
 ## Onboarding Guide
 
@@ -30,6 +30,16 @@ For new software developers joining the SFD team, there is an [onboarding guide]
 - [fcp-fd-customer-receiver-messages](https://github.com/DEFRA/fcp-fd-customer-receiver-messages)
 
 ## Local Development
+
+You will need to clone this repository before running any scripts.
+```bash
+git clone https://github.com/DEFRA/fcp-fd-core
+
+cd fcp-fd-core
+
+npm install
+```
+
 ### Cloning Repositories
 This project contains a script to clone all the required repositories. This works by checking the service-compose directory for the services and cloning them if they do not exist.
 
@@ -40,7 +50,7 @@ npm run clone
 ```
 
 ### Starting the Services
-This project creates a single docker-compose project that orchestrates all microservices and performs any necessary setup such as database migrations.
+A single docker-compose project has been created that orchestrates all microservices, dependencies, and performs any necessary setup tasks such as database migrations.
 
 All configuration is stored in the `.env` file. Before starting the services, ensure that the `.env` file is correctly configured. See the `.env.example` file for an example configuration.
 
