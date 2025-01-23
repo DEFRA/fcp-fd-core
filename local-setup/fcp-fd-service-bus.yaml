@@ -1,0 +1,37 @@
+services:
+  fcp-fd-service-bus:
+    container_name: "fcp-fd-service-bus"
+    image: mcr.microsoft.com/azure-messaging/servicebus-emulator:latest
+    volumes:
+      - "../local-setup/service-bus-config.json:/ServiceBus_Emulator/ConfigFiles/Config.json"
+    ports:
+      - "5672:5672"
+    environment:
+      SQL_SERVER: sqledge  
+      ACCEPT_EULA: ${ACCEPT_SB_EULA}
+    env_file:
+      - ../.env
+    depends_on:
+      - sqledge
+    networks:
+      fcp-fd:
+        aliases:
+          - "fcp-fd-service-bus"
+      sb-emulator:
+        aliases:
+          - "fcp-fd-service-bus"
+
+  sqledge:
+    container_name: "sqledge"
+    image: "mcr.microsoft.com/azure-sql-edge:latest"
+    networks:
+      sb-emulator:
+        aliases:
+          - "sqledge"
+    environment:
+      ACCEPT_EULA: ${ACCEPT_SB_EULA}
+    env_file:
+      - ../.env
+
+networks:
+  sb-emulator:

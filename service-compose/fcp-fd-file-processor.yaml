@@ -1,0 +1,22 @@
+services:
+  fcp-fd-file-processor:
+    build:
+      context: ../../fcp-fd-file-processor
+      target: development
+    image: fcp-fd-file-processor
+    container_name: fcp-fd-file-processor
+    depends_on:
+      fcp-fd-local-setup:
+        condition: service_completed_successfully
+    networks:
+      - fcp-fd
+    ports:
+      - "3037:3037"
+      - "9037:9229"
+    env_file:
+      - ../.env
+    environment:
+      OBJECTS_CONTAINER_NAME: objects${MESSAGE_DEV_SUFFIX}
+      DATA_TOPIC_ADDRESS: data-layer${MESSAGE_DEV_SUFFIX}
+    volumes:
+      - ../../fcp-fd-file-processor/app:/home/node/app
