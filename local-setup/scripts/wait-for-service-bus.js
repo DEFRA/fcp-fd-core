@@ -7,8 +7,8 @@ async function checkServiceBus() {
   const sender = new MessageSender(
     {
       connectionString: process.env.MESSAGE_QUEUE_CONNECTION_STRING,
-      topic: 'fcp-fd-test-sf',
-      address: 'fcp-fd-test-sf'
+      topic: 'fcp-fd-test',
+      address: 'fcp-fd-test'
     }
   )
 
