@@ -47,7 +47,7 @@ async function addToParentCompose(path) {
 
   const compose = parse(parent)
 
-  let { include } = compose
+  const { include } = compose
 
   if (include.indexOf(path) > -1) {
     console.log('Service already included')
