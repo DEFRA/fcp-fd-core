@@ -11,23 +11,13 @@ Local development support for orchestrating all Single Front Door microservices.
 For new software developers joining the SFD team, there is an [onboarding guide](https://github.com/DEFRA/fcp-fd-core/blob/main/onboarding-guide/README.md) to get an instance of the local service up and running.
 
 ## Repositories
-### Frontends
-- [fcp-fd-landing-page](https://github.com/defra/fcp-fd-landing-page)
-- [fcp-fd-messages](https://github.com/DEFRA/fcp-fd-messages)
-
 ### Backends
-- [fcp-fd-auth](https://github.com/defra/fcp-fd-auth)
 - [fcp-fd-comms](https://github.com/defra/fcp-fd-comms)
 - [fcp-fd-file-processor](https://github.com/DEFRA/fcp-fd-file-processor)
 - [fcp-fd-file-receiver](https://github.com/DEFRA/fcp-fd-file-receiver)
-- [fcp-fd-ingress](https://github.com/defra/fcp-fd-ingress)
-- [fcp-fd-messages-processor](https://github.com/DEFRA/fcp-fd-messages-processor)
-- [fcp-fd-probe](https://github.com/DEFRA/fcp-fd-probe)
-- [fcp-fd-probe-alerts](https://github.com/DEFRA/fcp-fd-probe-alerts)
 
 ### Customer
 - [fcp-fd-data](https://github.com/defra/fcp-fd-data)
-- [fcp-fd-customer-receiver-messages](https://github.com/DEFRA/fcp-fd-customer-receiver-messages)
 
 ## Local Development
 

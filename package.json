@@ -9,8 +9,7 @@
     "clone": "node scripts/clone.js",
     "pull": "node scripts/pull.js",
     "update": "node scripts/update.js",
-    "latest-versions": "node scripts/latest-versions.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "latest-versions": "node scripts/latest-versions.js"
   },
   "repository": {
     "type": "git",
