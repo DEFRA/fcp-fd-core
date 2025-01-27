@@ -50,6 +50,10 @@ cd ./fcp-fd-file-receiver && \
   docker-compose down $@
 
 cd "${projectRoot}"
+cd ./fcp-fd-file-retriever && \
+  docker-compose down $@
+
+cd "${projectRoot}"
 cd ./fcp-fd-ingress && \
   docker-compose down $@
 

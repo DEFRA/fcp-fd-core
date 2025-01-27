@@ -42,6 +42,7 @@ cd "${projectRoot}"
 ./fcp-fd-data/scripts/start -d;
 ./fcp-fd-file-processor/scripts/start -d;
 ./fcp-fd-file-receiver/scripts/start -d;
+./fcp-fd-file-retriever/scripts/start -d;
 ./fcp-fd-landing-page/scripts/start -d;
 ./fcp-fd-messages/scripts/start -d;
 ./fcp-fd-messages-processor/scripts/start -d;

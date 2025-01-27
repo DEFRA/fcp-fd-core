@@ -33,6 +33,10 @@ projectRoot=$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; pw
     && >&2 echo "The 'fcp-fd-file-receiver' repository already exists. Skipping." \
     || git clone https://github.com/DEFRA/fcp-fd-file-receiver.git
 
+  test -d fcp-fd-file-retriever\
+    && >&2 echo "The 'fcp-fd-file-retriever repository already exists. Skipping." \
+    || git clone https://github.com/DEFRA/fcp-fd-file-retriever.git
+
   test -d fcp-fd-ingress\
     && >&2 echo "The 'fcp-fd-ingress' repository already exists. Skipping." \
     || git clone https://github.com/DEFRA/fcp-fd-ingress.git
@@ -56,4 +60,5 @@ projectRoot=$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a/.." || return; pw
   test -d fcp-fd-probe-alerts\
     && >&2 echo "The 'fcp-fd-probe-alerts' repository already exists. Skipping." \
     || git clone https://github.com/DEFRA/fcp-fd-probe-alerts.git
+
 )

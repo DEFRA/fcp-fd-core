@@ -33,6 +33,7 @@ code ./fcp-fd-customer-receiver-messages;
 code ./fcp-fd-data;
 code ./fcp-fd-file-processor;
 code ./fcp-fd-file-receiver;
+code ./fcp-fd-file-retriever;
 code ./fcp-fd-ingress;
 code ./fcp-fd-landing-page;
 code ./fcp-fd-messages;
