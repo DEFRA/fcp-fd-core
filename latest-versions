@@ -18,6 +18,9 @@ echo 'fcp-fd-file-processor' &&
 echo 'fcp-fd-file-receiver' &&
   curl --silent "https://api.github.com/repos/defra/fcp-fd-file-receiver/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
 
+echo 'fcp-fd-file-retriever' &&
+  curl --silent "https://api.github.com/repos/defra/fcp-fd-file-retriever/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+
 echo 'fcp-fd-ingress' &&
   curl --silent "https://api.github.com/repos/defra/fcp-fd-ingress/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
 

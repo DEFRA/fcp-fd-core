@@ -38,6 +38,10 @@ cd ./fcp-fd-customer-receiver-messages && \
   docker-compose build
 
 cd "${projectRoot}"
+cd ./fcp-fd-file-retriever && \
+  docker-compose build
+
+cd "${projectRoot}"
 cd ./fcp-fd-data && \
   docker-compose build
 

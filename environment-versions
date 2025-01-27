@@ -71,6 +71,9 @@ echo 'fcp-fd-file-receiver: ' &&
   kubectl get deployment fcp-fd-file-receiver -o jsonpath='{.metadata.labels.app\.kubernetes\.io\/version}';
 echo
 
+echo 'fcp-fd-file-retriever: ' && 
+  kubectl get deployment fcp-fd-file-retriever -o jsonpath='{.metadata.labels.app\.kubernetes\.io\/version}';
+
 echo 'fcp-fd-landing-page: ' &&
   kubectl get deployment fcp-fd-landing-page -o jsonpath='{.metadata.labels.app\.kubernetes\.io\/version}';
 echo
