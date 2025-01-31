@@ -2,107 +2,123 @@
 Local development support for orchestrating all Single Front Door microservices.
 
 ## Prerequisites
-
-Ensure you have satisfied the prerequisites of all individual repositories.
+* Docker
+* Docker Compose
+* Node.js 22.13 LTS - We recommend using [NVM](https://github.com/nvm-sh/nvm) for Unix-based systems or [NVM-Windows](https://github.com/coreybutler/nvm-windows).
 
 ## Onboarding Guide
 
 For new software developers joining the SFD team, there is an [onboarding guide](https://github.com/DEFRA/fcp-fd-core/blob/main/onboarding-guide/README.md) to get an instance of the local service up and running.
 
 ## Repositories
-### Frontends
-- [fcp-fd-landing-page](https://github.com/defra/fcp-fd-landing-page)
-- [fcp-fd-messages](https://github.com/DEFRA/fcp-fd-messages)
+| Service | Type | Quality gate |
+| --- | --- | --- |
+| [fcp-fd-comms](https://github.com/defra/fcp-fd-comms) | Backend | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fcp-fd-comms&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fcp-fd-comms) |
+| [fcp-fd-file-processor](https://github.com/DEFRA/fcp-fd-file-processor) | Backend | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fcp-fd-file-processor&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fcp-fd-file-processor) |
+| [fcp-fd-file-retriever](https://github.com/DEFRA/fcp-fd-file-retriever) | Backend | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fcp-fd-file-retriever&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fcp-fd-file-retriever) |
+| [fcp-fd-data](https://github.com/defra/fcp-fd-data) | Customer | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fcp-fd-data&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fcp-fd-data) |
 
-### Backends
-- [fcp-fd-auth](https://github.com/defra/fcp-fd-auth)
-- [fcp-fd-comms](https://github.com/defra/fcp-fd-comms)
-- [fcp-fd-file-processor](https://github.com/DEFRA/fcp-fd-file-processor)
-- [fcp-fd-file-receiver](https://github.com/DEFRA/fcp-fd-file-receiver)
-- [fcp-fd-file-retriever](https://github.com/DEFRA/fcp-fd-file-retriever)
-- [fcp-fd-ingress](https://github.com/defra/fcp-fd-ingress)
-- [fcp-fd-messages-processor](https://github.com/DEFRA/fcp-fd-messages-processor)
-- [fcp-fd-probe](https://github.com/DEFRA/fcp-fd-probe)
-- [fcp-fd-probe-alerts](https://github.com/DEFRA/fcp-fd-probe-alerts)
+## Local Development
 
-### Customer
-- [fcp-fd-data](https://github.com/defra/fcp-fd-data)
-- [fcp-fd-customer-receiver-messages](https://github.com/DEFRA/fcp-fd-customer-receiver-messages)
+You will need to clone this repository before running any scripts.
+```bash
+git clone https://github.com/DEFRA/fcp-fd-core
 
-## Scripts
+cd fcp-fd-core
+
+npm install
+```
+
+### Cloning Repositories
+This project contains a script to clone all the required repositories. This works by checking the service-compose directory for the services and cloning them if they do not exist.
+
+To clone the repositories, run the following command:
+
+```bash
+npm run clone
+```
+
+### Starting the Services
+A single docker-compose project has been created that orchestrates all microservices, dependencies, and performs any necessary setup tasks such as database migrations.
+
+All configuration is stored in the `.env` file. Before starting the services, ensure that the `.env` file is correctly configured. See the `.env.example` file for an example configuration.
+
+If you need assistance with finding the correct values for the `.env` file, please refer to the [onboarding guide](#onboarding-guide) or ask another developer for help.
+
+To start all services, run the following command:
+
+```bash
+docker-compose --profile fcp-fd up --build
+```
+
+To stop the services, run the following command:
+
+```bash
+docker-compose down
+```
+
+The services can still be started individually directly from their respective repositories. However, this project is intended to streamline local development by having a common entry point for all services.
+
+## Adding a New Service
+Adding a new service to the core project is partially automated. The `add-service` script will scaffold a new microservice docker-compose project in the `service-compose` directory.
+
+To add a new service, run the following command:
+
+```bash
+npm run add-service
+```
+
+### Databases
+Database migrations are run by the local-setup container automatically when the services are started. If you are adding a new service that requires a database, you will need to let the local-setup container know where the Liquibase changelog files are located.
+
+To do this, add a bind mount to `local-setup/fcp-fd-local-setup.yml` for the changelog directory of the new service.
+
+```yaml
+volumes:
+    - ../repos/{service-name}/changelog:/liquibase/services/{service_name}/changelog
+```
+
+> [!IMPORTANT]
+> The service_name folder on the container side must use snake_case.
+> For example, if the service name is `fcp-fd-new-service`, the bind mount should be `/liquibase/services/fcp_fd_new_service/changelog`.
+> ```yaml
+> volumes:
+>   - ../repos/fcp-fd-new-service/changelog:/liquibase/services/fcp_fd_new_service/changelog
+
+## Script Documentation
+This project contains a number of scripts to streamline local microservice development.
+
+### Add Service
+Scaffolds a new microservice docker-compose project in the `service-compose` directory.
+
+```bash
+npm run add-service
+```
 
 ### Clone
+Clones the repositories for each microservice into the parent directory.
 
-Clone all repositories from GitHub.  Repositories will cloned in the parent directory of this repository.
+```bash
+npm run clone
+```
 
-[`./clone`](clone)
-
-### Update
-
-Switch to `main` branch in every repository and pull latest changes with `git pull`.
-
-[`./update`](update)
-
-### Build
-
-Build/rebuild Docker container for all microservices.
-
-[`./build`](build)
-
-### Start
-
-Run all services.
-
-[`./start`](start)
-
-#### Optional arguments
-- `-f` - include Azure Functions
-- `-s` - include Statement services
-- `-S` - only statement services
-
-### Stop
-
-Stop all services.
-
-[`./stop`](stop)
-
-#### Optional arguments
-
-Any valid `docker-compose down` argument.
-
-### Open
-
-Open all services in Visual Studio Code.
-
-[`./open`](open)
-
-#### Optional arguments
-- `-f` - include Azure Functions
-- `-s` - include Statement services
-- `-S` - only statement services
-
-### Latest versions
-
+### Latest Versions
 List latest GitHub release version for each microservice.
 
-[`./latest-versions`](latest-versions)
+```bash
+npm run latest-versions
+```
 
-### Environment versions
+### Pull
+Pulls the latest remote changes for each microservice.
 
-List current environment version for each microservice hosted in Kubernetes. Further guidance on how to utilise the `./environment-versions` script is also [available on Confluence](https://eaflood.atlassian.net/wiki/spaces/SFD/pages/5056823438/Environment+versions+Using+kubectl+with+the+fcp-fd-core+repo).
+```bash
+npm run pull
+```
 
-[`./environment-versions`](environment-versions)
+### Update
+Switches to and pulls the latest main branch for each microservice.
 
-#### Options
-- `-c | --cluster` - Kubernetes cluster context name
-- `-n | --namespace` - Kubernetes namespace
-
-#### Resources
-`./resources`: contains useful resources for local development.
-`./resources/test-message-payloads`: example message payloads that can be used for Notify email templates.
-
-### Resource quota
-
-Determine the Kubernetes resource usage for a namespace based on all microservices running at maximum capacity and scaling.
-
-[`./resource-quota`](resource-quota)
+```bash
+npm run update
+```

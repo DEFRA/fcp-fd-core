@@ -1,0 +1,24 @@
+services:
+  fcp-fd-file-retriever:
+    build:
+      context: ../../fcp-fd-file-retriever
+      target: development
+    profiles:
+      - fcp-fd
+      - backend
+    image: fcp-fd-file-retriever
+    container_name: fcp-fd-file-retriever
+    depends_on:
+      fcp-fd-local-setup:
+        condition: service_completed_successfully
+    networks:
+      - fcp-fd
+    ports:
+      - "3042:3042"
+      - "9042:9229"
+    env_file:
+      - ../.env
+    environment:
+      OBJECTS_CONTAINER_NAME: objects${MESSAGE_DEV_SUFFIX}
+    volumes:
+      - ../../fcp-fd-file-retriever/app:/home/node/app

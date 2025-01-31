@@ -1,0 +1,10 @@
+include:
+  - service-compose/fcp-fd-file-retriever.yaml
+  - service-compose/fcp-fd-file-processor.yaml
+  - service-compose/fcp-fd-data.yaml
+  - service-compose/fcp-fd-comms.yaml
+  - local-setup/fcp-fd-local-setup.yaml
+networks:
+  fcp-fd:
+    name: fcp-fd
+    driver: bridge
