@@ -45,10 +45,10 @@ All configuration is stored in the `.env` file. Before starting the services, en
 
 If you need assistance with finding the correct values for the `.env` file, please refer to the [onboarding guide](#onboarding-guide) or ask another developer for help.
 
-To start the services, run the following command:
+To start all services, run the following command:
 
 ```bash
-docker-compose up --build
+docker-compose --profile fcp-fd up --build
 ```
 
 To stop the services, run the following command:
