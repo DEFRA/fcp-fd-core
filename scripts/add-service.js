@@ -4,16 +4,19 @@ import { parse, stringify } from 'yaml'
 
 const cwd = process.cwd()
 
-async function constructCompose(appName, ports) {
+async function constructCompose(serviceName, ports) {
   const compose = {
     services: {
-      [appName]: {
+      [serviceName]: {
         build: {
-          context: `../../${appName}`,
+          context: `../../${serviceName}`,
           target: 'development'
         },
-        image: appName,
-        container_name: appName,
+        profiles: [
+          'fcp-fd'
+        ],
+        image: serviceName,
+        container_name: serviceName,
         depends_on: {
           'fcp-fd-local-setup': {
             condition: 'service_completed_successfully'
@@ -30,14 +33,14 @@ async function constructCompose(appName, ports) {
           '../.env'
         ],
         volumes: [
-          `../../${appName}:/home/node/app`
+          `../../${serviceName}:/home/node/app`
         ]
       }
     }
   }
 
   await fs.writeFile(
-    `${cwd}/service-compose/${appName}.yaml`,
+    `${cwd}/service-compose/${serviceName}.yaml`,
     stringify(compose)
   )
 }
@@ -78,9 +81,9 @@ async function getUserInput(q) {
 }
 
 async function addService() {
-  const appName = await getUserInput('Enter the name of the app: ')
+  const serviceName = await getUserInput('Enter the name of the service: ')
 
-  if (existsSync(`${cwd}/service-compose/${appName}.yaml`)) {
+  if (existsSync(`${cwd}/service-compose/${serviceName}.yaml`)) {
     console.log('Service already exists')
     return
   }
@@ -90,8 +93,8 @@ async function addService() {
 
   const ports = [server, debug]
 
-  await constructCompose(appName, ports)
-  await addToParentCompose(`service-compose/${appName}.yaml`)
+  await constructCompose(serviceName, ports)
+  await addToParentCompose(`service-compose/${serviceName}.yaml`)
 }
 
 await addService()
