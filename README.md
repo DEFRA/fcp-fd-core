@@ -11,13 +11,12 @@ Local development support for orchestrating all Single Front Door microservices.
 For new software developers joining the SFD team, there is an [onboarding guide](https://github.com/DEFRA/fcp-fd-core/blob/main/onboarding-guide/README.md) to get an instance of the local service up and running.
 
 ## Repositories
-### Backends
-- [fcp-fd-comms](https://github.com/defra/fcp-fd-comms)
-- [fcp-fd-file-processor](https://github.com/DEFRA/fcp-fd-file-processor)
-- [fcp-fd-file-receiver](https://github.com/DEFRA/fcp-fd-file-receiver)
-
-### Customer
-- [fcp-fd-data](https://github.com/defra/fcp-fd-data)
+| Service | Type | Quality gate |
+| --- | --- | --- |
+| [fcp-fd-comms](https://github.com/defra/fcp-fd-comms) | Backend | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fcp-fd-comms&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fcp-fd-comms) |
+| [fcp-fd-file-processor](https://github.com/DEFRA/fcp-fd-file-processor) | Backend | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fcp-fd-file-processor&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fcp-fd-file-processor) |
+| [fcp-fd-file-retriever](https://github.com/DEFRA/fcp-fd-file-retriever) | Backend | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fcp-fd-file-retriever&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fcp-fd-file-retriever) |
+| [fcp-fd-data](https://github.com/defra/fcp-fd-data) | Customer | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fcp-fd-data&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fcp-fd-data) |
 
 ## Local Development
 
