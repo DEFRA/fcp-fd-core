@@ -3,6 +3,9 @@ services:
     build:
       context: ../../fcp-fd-data
       target: development
+    profiles:
+      - fcp-fd
+      - customer
     image: fcp-fd-data
     container_name: fcp-fd-data
     depends_on:
