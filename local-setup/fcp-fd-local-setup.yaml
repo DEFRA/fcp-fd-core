@@ -24,8 +24,8 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ppp}
       POSTGRES_USERNAME: ${POSTGRES_USERNAME:-postgres}
     volumes:
-      - ../repos/fcp-fd-comms/changelog:/liquibase/services/fcp_fd_comms/changelog
-      - ../repos/fcp-fd-data/changelog:/liquibase/services/fcp_fd_data/changelog
+      - ../../fcp-fd-comms/changelog:/liquibase/services/fcp_fd_comms/changelog
+      - ../../fcp-fd-data/changelog:/liquibase/services/fcp_fd_data/changelog
 
   fcp-fd-postgres:
     image: postgres:16.4-alpine
