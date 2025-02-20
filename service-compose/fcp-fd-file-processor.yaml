@@ -20,6 +20,6 @@ services:
       - ../.env
     environment:
       OBJECTS_CONTAINER_NAME: objects${MESSAGE_DEV_SUFFIX}
-      DATA_TOPIC_ADDRESS: data-layer${MESSAGE_DEV_SUFFIX}
+      DATA_TOPIC_ADDRESS: fcp-fd-data${MESSAGE_DEV_SUFFIX}
     volumes:
       - ../../fcp-fd-file-processor/app:/home/node/app
