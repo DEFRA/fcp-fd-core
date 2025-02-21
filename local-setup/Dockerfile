@@ -33,6 +33,9 @@ ENV LIQUIBASE_HOME=/liquibase
 
 COPY --chown=setup:setup scripts/ /scripts
 
+# Convert scripts to Unix format and make them executable
+RUN dos2unix /scripts/*.sh && chmod +x /scripts/*.sh
+
 # Set user and group
 USER setup:setup
 
