@@ -78,7 +78,7 @@ services:
     networks:
       - fcp-fd
     volumes:
-      - ./notify.json:/data:readonly
+      - ./mockoon/example-gov-notify.json:/data:readonly
 
 volumes:
   postgres_data:
