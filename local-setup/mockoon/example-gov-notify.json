@@ -17,7 +17,7 @@
       "responses": [
         {
           "uuid": "3cf7a472-27ff-406a-a813-eaa5c943323f",
-          "body": "{\n  \"status_code\": \"500\"\n}",
+          "body": "{\n  data: {\n    \"status_code\": 500\n  }\n}",
           "latency": 0,
           "statusCode": 500,
           "label": "",
@@ -33,6 +33,25 @@
           "default": true,
           "crudKey": "id",
           "callbacks": []
+        },
+        {
+          "uuid": "40e2fa85-c830-49bf-9549-fde4e1423ba3",
+          "body": "[{\r\n  \"error\": \"RateLimitError\",\r\n  \"message\": \"Exceeded rate limit for key type TEAM/TEST/LIVE of 3000 requests per 60 seconds\"\r\n}]",
+          "latency": 0,
+          "statusCode": 429,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
         }
       ],
       "responseMode": null,
@@ -44,7 +63,7 @@
       "type": "http",
       "documentation": "",
       "method": "get",
-      "endpoint": "test",
+      "endpoint": "healthy",
       "responses": [
         {
           "uuid": "57dff96e-32c6-4859-a390-bf0f2437b866",
